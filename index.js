@@ -1,4 +1,4 @@
-const express = require("express");
+const express = require ("express");
 const {connection} = require('./db');
 const {userRoute} = require("./routes/user.routes");
 const {blogRoute}=require("./routes/blog.routes")
@@ -8,7 +8,12 @@ const cors=require("cors")
 const app = express();
 
 app.use(express.json());
-app.use(cors())
+app.use(cors({ 
+    origin: 'http://127.0.0.1:5500', // Adjust with your frontend origin
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+    optionsSuccessStatus: 204,
+}))
 app.use("/users",userRoute);
 app.use("/blogs",blogRoute)
 app.get("/",(req,res)=>{

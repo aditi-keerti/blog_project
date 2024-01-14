@@ -4,7 +4,7 @@ const regbtn = document.getElementById("registerbtn");
 regbtn.addEventListener("click", (e) => {
     e.preventDefault();
 
-    fetch("https://practice-mifg.onrender.com/users/register", {
+    fetch("https://agreeable-khakis-dog.cyclic.app/users/register", {
         method: "POST",
         headers: {
             "Content-type": "application/json",
@@ -12,7 +12,7 @@ regbtn.addEventListener("click", (e) => {
         body: JSON.stringify({
             name: document.getElementById("r_name").value,
             email: document.getElementById("r_email").value,
-            password: document.getElementById("r_password").value,
+            pass: document.getElementById("r_pass").value,
             role: document.getElementById("role-select").value,
         }),
     })
@@ -39,14 +39,14 @@ const logbtn = document.getElementById("loginbtn");
 logbtn.addEventListener("click", (e) => {
     e.preventDefault();
 
-    fetch("https://practice-mifg.onrender.com/users/login", {
+    fetch("https://agreeable-khakis-dog.cyclic.app/users/login", {
         method: "POST",
         headers: {
             "Content-type": "application/json",
         },
         body: JSON.stringify({
             email: document.getElementById("l_email").value,
-            password: document.getElementById("l_password").value,
+            pass: document.getElementById("l_password").value,
         }),
     })
     .then((response) => {
@@ -65,7 +65,7 @@ logbtn.addEventListener("click", (e) => {
         localStorage.setItem("token", data.access_token);
         localStorage.setItem("token2", data.refresh_token);
         localStorage.setItem("name", data.name);
-        location.href = "./notesDashboard.html";
+        location.href = './notesDashBoard.html';
     })
     .catch((err) => {
         console.log(err.message);
